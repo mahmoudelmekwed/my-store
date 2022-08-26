@@ -1,11 +1,14 @@
 <div class="product-container">
-<img class="product-image" src='{{ productItem.url }}'>
-<p>{{productItem.name}}</p>
-<p>{{productItem.price}}</p>
-<form (ngSubmit)="add()" >
-    <select [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let n of productCount" value="{{n}}">{{n}}</option>
-    </select>
-    <input type="submit" value="Add to Cart"  >
-</form>
+  <a routerLink="details/{{ productItem.id }}">
+    <img class="product-image" src='{{ productItem.url }}' >
+  </a>
+  <p>{{productItem.name}}</p>
+  <p>{{productItem.price}}</p>
+  <form (ngSubmit)="add(productItem)" >
+      <select [(ngModel)]="selected" [ngModelOptions]="{standalone: true}" class="select-input">
+          <option *ngFor="let n of productCount" value="{{n}}">{{n}}</option>
+      </select>
+      <br>
+      <input type="submit" value="Add to Cart" class="btn btn-primary" >
+  </form>
 </div>

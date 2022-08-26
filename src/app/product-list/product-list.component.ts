@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/Product';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,34 +10,25 @@ import { Product } from '../models/Product';
 })
 export class ProductListComponent implements OnInit {
   products :Product[] = [] ;
-  cartList :any[] = [];
 
-  constructor(private productservice : ProductService) { }
+  constructor(
+    private productservice : ProductService,
+    private cartservice : CartService
+    ) { }
 
   ngOnInit(): void {
     this.productservice.getProducts().subscribe(res => {
+      for (let num = 0; num < res.length; num++) {
+      const product = res[num];
+      product['amount'] = 1;
+    }
       this.products = res;
+      this.productservice.setProducts(res);
     })
   }
 
-  addToCart(event:any){
-    // console.log(event)
-    //let message: string='';
-    if ("cart" in localStorage){
-      this.cartList = JSON.parse(localStorage.getItem("cart")!)
-      let exist = this.cartList.find(item => item.id == event.id)
-      if (exist){
-        alert(`'${exist.name}' is already exist in your cart`)
-      }else{
-        this.cartList.push(event)
-      localStorage.setItem("cart" , JSON.stringify(this.cartList) )
-      }
-      
-    }else{
-      this.cartList.push(event)
-      localStorage.setItem("cart" , JSON.stringify(this.cartList) )
-    }
-     
+  addToCart(product: Product) {
+    this.cartservice.addToCart(product);
   }
 
 }

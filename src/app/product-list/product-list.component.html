@@ -1,10 +1,8 @@
-<!-- <div class="product-index">
-<ul *ngFor="let product of products">
-     <li>{{product.name}}</li>
-     <li>{{product.price}}</li>
-     <li><img class="product-image" src='{{ product.url }}'></li>
-</ul>
-</div> -->
+
 <div class="product-index">
-<app-product-item *ngFor="let product of products"  [productItem]="product" (product)="addToCart($event)"></app-product-item>
+     <app-product-item 
+          *ngFor="let product of products"  
+          [productItem]="product" 
+          (product)="addToCart($event)" 
+     ></app-product-item>
 </div>

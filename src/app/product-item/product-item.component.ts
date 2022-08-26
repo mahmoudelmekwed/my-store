@@ -1,5 +1,7 @@
 import { Component, OnInit , Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../models/Product';
+import { ProductService } from '../services/product.service';
+
 
 @Component({
   selector: 'app-product-item',
@@ -8,25 +10,28 @@ import { Product } from '../models/Product';
 })
 export class ProductItemComponent implements OnInit {
   @Input() productItem : Product;
-  @Output() product = new EventEmitter()
-  productCount = [1 , 2 , 3 , 4 , 5];
-  selected : number = 1 ;
+  @Output() product = new EventEmitter();
+  productCount = [1,2,3,4,5,6,7,8,9,10];
+  selected = 1 ;
 
-  constructor() {
+  constructor(private productservice : ProductService) {
       this.productItem ={
         id: 1,
         name: '',
         price: 0,
         url: '',
         description: '',
+        amount:0
       }
    }
 
   ngOnInit(): void {
   }
 
-  add() {
-     this.product.emit( {item :this.productItem , quantity :this.selected});
+  add(item: Product) {
+    item.amount = this.selected;
+    this.product.emit(item);
+    alert('Added to your cart');
+    this.selected = 1;
   }
-
 }

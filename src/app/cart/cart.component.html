@@ -1,1 +1,24 @@
-<p>cart works!</p>
+<div *ngIf="cartList.length; else noCartProducts" class="cart">
+    <div class="cart-product">
+        <div *ngFor="let cartproduct of cartList" class="cartproduct">
+            <img class="product-image" src="{{cartproduct.url}}">
+            <div class="cart-panel">
+                <div class="product-detail"><b>{{cartproduct.name}}</b></div>
+                <p class="product-detail">{{cartproduct.price}}</p>
+                <div class="">
+                    <label>Amount: </label>
+                    <input type="number" min="1" [(ngModel)]="cartproduct.amount" value="{{cartproduct.amount}}"(ngModelChange)="updateCart(cartproduct)" class="number-input">
+                </div>
+            </div>
+        </div>
+        <div class="product-detail"><b>Total:${{totalPrice.toFixed(2)}}</b></div>
+    </div>
+    <div>
+      <app-customer (confirmation)="confirmation($event)"></app-customer>
+    </div>
+</div>
+<ng-template #noCartProducts>
+    <div class="empty-cart">
+    Cart is Empty, <a routerLink="/"> add product to cart</a> 
+    </div>
+</ng-template>

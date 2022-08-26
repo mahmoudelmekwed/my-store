@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductItemDetailComponent } from './product-item-detail/product-item-detail.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { CustomerComponent } from './customer/customer.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +21,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductListComponent,
     HeaderComponent,
     CartComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    ProductItemDetailComponent,
+    ConfirmationComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
