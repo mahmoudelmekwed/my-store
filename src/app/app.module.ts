@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductItemDetailComponent } from './product-item-detail/product-item-detail.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { CustomerComponent } from './customer/customer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { CustomerComponent } from './customer/customer.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

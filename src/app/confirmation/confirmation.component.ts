@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faSmile } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-confirmation',
@@ -10,6 +11,7 @@ export class ConfirmationComponent implements OnInit {
 
   firstName: string | null = '';
   totalPrice: number | null = 0;
+  fasmile = faSmile;
 
   constructor(private route : ActivatedRoute) { }
 
