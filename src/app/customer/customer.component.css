@@ -1,9 +1,11 @@
-.form-margin {
+.form {
     margin-bottom: 12px;
   }
 
 .box{
-  width: 400px;
+  width: 450px;
   margin-top: 10px;
-  margin-bottom: 10 px;
+  margin-bottom: 10px;
 }
+
+label , input { display:block }
