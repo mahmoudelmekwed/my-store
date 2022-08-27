@@ -1,12 +1,12 @@
-<div class="confirmation-container">
-    <div class="confirmation-items ">
-        <div class="confirmation-header confirmation-item">
+<div class="confirmation">
+    <div class="confirmation-items">
+        <div class="confirmation-header">
             SUCCESS! <fa-icon [icon]="fasmile"></fa-icon>
         </div>
-        <div class="confirmation-item">Thank you, <b>{{ firstName }}</b></div>
-        <div class="confirmation-item">Your <b>${{ totalPrice }}</b> order is confirmed!</div>
-        <div class="confirmation-item">Please allow 1-3 business day(s) for shipping</div>
-        <div class="confirmation-item">
+        <div>Thank you, <b>{{ fullName }}</b></div><br>
+        <div>Your <b>${{ totalPrice }}</b> order is confirmed!</div><br>
+        <div>Please allow 1-3 business day(s) for shipping</div><br>
+        <div>
             <button type="button" class="btn btn-primary"><a routerLink="/" [ngStyle]="{ color: '#FFF' }">Return to product list</a></button>    
         </div>
     </div>

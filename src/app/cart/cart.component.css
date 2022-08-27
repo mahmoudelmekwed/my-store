@@ -42,14 +42,7 @@
     text-align: center;
   }
 
-.empty-cart {
-    display: flex;
-    justify-content: center;
-    margin-top: 64px;
-    color: gray;
-    font-size: 25px;
-    margin-top: 15%;
-}  
+
 
 .totalPrice{
     font-size: x-large;

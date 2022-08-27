@@ -6,9 +6,9 @@ import { Component, OnInit, Output , EventEmitter } from '@angular/core';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  firstName: string='';
-  address: string='';
-  creditCard: number | string = '';
+  fullName!: string;
+  address!: string;
+  creditCard!: number;
 
   @Output() confirmation: EventEmitter<string> = new EventEmitter();
 
@@ -19,7 +19,7 @@ export class CustomerComponent implements OnInit {
   }
 
   onSubmit():void{
-    this.confirmation.emit(this.firstName);
+    this.confirmation.emit(this.fullName);
   }
 
 }
