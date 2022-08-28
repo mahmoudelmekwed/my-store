@@ -1,20 +1,20 @@
 <div class="cart">
-    <div class="cart-product">
-        <div *ngFor="let cartproduct of cartList" class="cartproduct">
-            <img class="product-image" src="{{cartproduct.url}}">
-            <div class="cart-panel">
-                <div class="product-detail"><b>{{cartproduct.name}}</b></div>
-                <p class="product-detail">{{cartproduct.price}}</p>
-                <div>
-                    <label>Amount: </label>
-                    <input type="number" min="1" [(ngModel)]="cartproduct.amount" value="{{cartproduct.amount}}"(ngModelChange)="updateCart(cartproduct)" class="number-input">
-                </div>
-            </div>
-        </div>
-        <div class="totalPrice"><b>Total:${{totalPrice.toFixed(2)}}</b></div>
-    </div>
+<div class="cart-product">
+    <div *ngFor="let cartproduct of cartList" class="cartproduct">
+    <img class="product-image" src="{{cartproduct.url}}">
+    <div class="cart-panel">
+    <div class="product-detail"><b>{{cartproduct.name}}</b></div>
+    <p class="product-detail">{{cartproduct.price}}</p>
     <div>
-      <app-customer (confirmation)="confirmation($event)"></app-customer>
+        <label>Amount: </label>
+        <input type="number" min="1" [(ngModel)]="cartproduct.amount" value="{{cartproduct.amount}}"(ngModelChange)="updateCart(cartproduct)" class="number-input">
     </div>
+    </div>
+    </div>
+    <div class="totalPrice"><b>Total:${{totalPrice.toFixed(2)}}</b></div>
+</div>
+<div>
+    <app-customer (confirmation)="confirmation($event)"></app-customer>
+</div>
 </div>
 
