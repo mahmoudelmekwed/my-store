@@ -1,6 +1,6 @@
 <div class="cart">
 <div class="cart-product">
-    <div *ngFor="let cartproduct of cartList" class="cartproduct">
+    <div *ngFor="let cartproduct of cartList; let i = index" class="cartproduct">
     <img class="product-image" src="{{cartproduct.url}}">
     <div class="product-description">
     <div class="product-detail"><b>{{cartproduct.name}}</b></div>
@@ -9,6 +9,8 @@
         <label>Amount: </label>
         <input type="number" min="1" [(ngModel)]="cartproduct.amount" value="{{cartproduct.amount}}"(ngModelChange)="updateCart(cartproduct)" class="number-input">
     </div>
+    <br>
+    <button class="btn btn-primary" (click)="remove(i)" > Remove from cart </button> 
     </div>
     </div>
     <div class="totalPrice"><b>Total:${{totalPrice.toFixed(2)}}</b></div>

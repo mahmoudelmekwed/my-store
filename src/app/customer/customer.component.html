@@ -1,10 +1,33 @@
 <form class="form" #form="ngForm"  (ngSubmit)="onSubmit()">
     <label><b>Full Name: </b></label>
-    <input type='text' name="fullName" required minlength="3" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" class="box">
+    <input type='text' id="" name="fullName" required minlength="3" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" class="box" #Name="ngModel">
+    <!-- <div *ngIf="Name.invalid && Name.dirty"> -->
+      <div *ngIf="Name.errors?.['required']" style="color: red;">
+        Name is required.
+      </div>
+      <div *ngIf="Name.errors?.['minlength']" style="color: red;">
+        Name must contain at least 3 characters.
+      </div>
+    <!-- </div> -->
     <label><b>Address:</b></label>
-    <input type='text' name="address" required minlength="6" placeholder="(minimum 6 characters)" [(ngModel)]="address" class="box">
+    <input type='text' name="address" required minlength="6" placeholder="(minimum 6 characters)" [(ngModel)]="address" class="box" #Address="ngModel">
+    <div *ngIf="Address.errors?.['required']" style="color: red;">
+      Address is required.
+    </div>
+    <div *ngIf="Address.errors?.['minlength']" style="color: red;">
+      Address must contain at least 6 characters.
+    </div>
     <label><b>Credit Card Number: </b></label>
-    <input type='text' name="credit card" required  minlength="16" maxlength="16" placeholder="(16-digit number)" [(ngModel)]="creditCard" class="box">
+    <input type='text' name="credit card"  required  minlength="16" maxlength="16" placeholder="(16-digit number)" pattern="^[0-9]*$" [(ngModel)]="creditCard" class="box" #credit="ngModel">
+    <div *ngIf="credit.errors?.['required']" style="color: red;">
+      Credit Card Number is required.
+    </div>
+    <div *ngIf="credit.errors?.['minlength']" style="color: red;">
+      Credit Card Number must contain at least 16 characters.
+    </div>
+    <div *ngIf="credit.errors?.['pattern']" style="color: red;">
+      Credit Card Number must contain numbers only.
+    </div>
     <p>We will never share your payment details with anyone else.</p>
     <input [disabled]="form.invalid" type='submit' value="Submit" class="btn btn-primary" />
 </form>

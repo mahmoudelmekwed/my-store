@@ -40,4 +40,11 @@ export class CartComponent implements OnInit {
     this.cartservice.clearCart();
     this.router.navigateByUrl(`success/${firstName}/${this.totalPrice}`);
   }
+
+  remove(index: number) {
+    this.cartservice.removeProduct(index);
+    this.totalPrice = 0 ;
+    this.calculateTotalPrice();
+}
+
 }

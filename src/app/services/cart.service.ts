@@ -20,7 +20,7 @@ export class CartService {
     }
   }
 
-  getcartlist(){
+  getcartlist(): Product[]{
     return this.cartList;
   }
 
@@ -28,4 +28,10 @@ export class CartService {
     this.cartList = [];
     return this.cartList;
   }
+
+  removeProduct(index: number){
+    this.cartList.splice(index, 1);
+  }
+
+
 }
