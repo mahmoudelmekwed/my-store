@@ -1,14 +1,12 @@
 <form class="form" #form="ngForm"  (ngSubmit)="onSubmit()">
     <label><b>Full Name: </b></label>
     <input type='text' id="" name="fullName" required minlength="3" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" class="box" #Name="ngModel">
-    <!-- <div *ngIf="Name.invalid && Name.dirty"> -->
       <div *ngIf="Name.errors?.['required']" style="color: red;">
         Name is required.
       </div>
       <div *ngIf="Name.errors?.['minlength']" style="color: red;">
         Name must contain at least 3 characters.
       </div>
-    <!-- </div> -->
     <label><b>Address:</b></label>
     <input type='text' name="address" required minlength="6" placeholder="(minimum 6 characters)" [(ngModel)]="address" class="box" #Address="ngModel">
     <div *ngIf="Address.errors?.['required']" style="color: red;">
