@@ -36,9 +36,9 @@ export class CartComponent implements OnInit {
     this.calculateTotalPrice();
   }
 
-  confirmation(firstName: string): void{
+  confirmation(fullName: string): void{
     this.cartservice.clearCart();
-    this.router.navigateByUrl(`success/${firstName}/${this.totalPrice}`);
+    this.router.navigate(['confirmation', {fullName , totalPrice: this.totalPrice}]);
   }
 
   remove(index: number) {
