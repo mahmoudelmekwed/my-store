@@ -43,8 +43,9 @@ export class CartComponent implements OnInit {
 
   remove(index: number) {
     this.cartservice.removeProduct(index);
+    alert('Item removed from your cart');
     this.totalPrice = 0 ;
     this.calculateTotalPrice();
-}
+  }
 
 }
